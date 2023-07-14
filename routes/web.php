@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +22,6 @@ Route::get('/dashboard', function () {
     return view('admin.control-panel');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/admin/users', function () {
-    return view('admin.users');
-})->middleware(['auth'])->name('users');
+Route::get('/admin/users', [UsersController::class, 'showUsers'])->middleware(['auth'])->name('users');
 
 require __DIR__.'/auth.php';
