@@ -56,4 +56,3 @@ Route::middleware('auth')->group(function () {
                 ->middleware('auth')
                 ->name('logout');
 });
-
