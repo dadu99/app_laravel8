@@ -1,5 +1,4 @@
 @include('admin.partials.head')
-
     <body class="wrapper">
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">

@@ -10,10 +10,8 @@
                     <h1 class="mt-4">
                         @yield('title')
                     </h1>
-                    @yield('content-users')
-                    <!-- for user blade page-->
-                    @yield('content')
-                    <!-- for control panel balde page-->
+                    @yield('content-users')     <!-- for user blade page-->
+                    @yield('content')           <!-- for control panel balde page-->
                 </div>
             </main>
             @include('admin.partials.footer')

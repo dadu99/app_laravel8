@@ -59,3 +59,8 @@
     font-size: 12px;
     text-align: center;
 }
+.user-avatar {
+    max-height: 50px;
+    max-width: 50px;
+    display: block;
+}
