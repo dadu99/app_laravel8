@@ -8,6 +8,11 @@ use App\Models\User;
 
 class UsersController extends Controller
 {
+    public function __construct() {
+
+        $this->middleware('admin');
+        
+    }
     public function showUsers() {
 
         $users = User::all()->sortBy('name');

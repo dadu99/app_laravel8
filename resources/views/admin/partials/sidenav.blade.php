@@ -3,11 +3,13 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Administrator</div>
+                            @if(auth()->user()->role == 'admin')
                             <a class="nav-link" href="{{route('users')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-users"></i>
                             </div>
                                 Users
                             </a>
+                            @endif
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
