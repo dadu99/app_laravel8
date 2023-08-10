@@ -22,6 +22,13 @@ Route::get('/dashboard', function () {
     return view('admin.control-panel');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/admin/users', [UsersController::class, 'showUsers'])->middleware(['admin'])->name('users');
+
+// === routes for administration ===>
+Route::prefix('admin')->middleware(['admin'])->group( function() {
+    Route::get('/users', [UsersController::class, 'showUsers'])->name('users');
+    Route::get('/user-new', [UsersController::class, 'newUser'])->name('users.new');
+    Route::post('/user-new', [UsersController::class, 'createUser'])->name('users.create');
+});
+// <=== routes for administration ===
 
 require __DIR__.'/auth.php';

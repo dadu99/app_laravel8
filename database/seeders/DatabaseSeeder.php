@@ -21,8 +21,8 @@ class DatabaseSeeder extends Seeder
             'phone' => '+4089 532 346',
             'address' => 'Romania, strada Laravel nr 80',
             'role' => 'admin'
-
         ]);
+        
          User::factory(100)->create();
     }
 }

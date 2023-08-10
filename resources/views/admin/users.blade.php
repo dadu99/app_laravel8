@@ -14,6 +14,10 @@
         <div class="card-header">
             <i class="fas fa-table me-1"></i>
             Users - {{ $users->count() }}
+
+            <a href="{{route('users.new')}}" class="btn btn-success float-right">
+                New User
+            </a>
         </div>
         <div class="card-body">
             <table class="table table-striped" id="datatablesSimple">
