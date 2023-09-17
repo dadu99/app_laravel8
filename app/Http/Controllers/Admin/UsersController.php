@@ -9,18 +9,19 @@ use App\Models\User;
 
 class UsersController extends Controller
 {
-    public function __construct() {
+    public function __construct()
+    {
 
         $this->middleware('admin');
-
     }
-    public function showUsers() {
+    public function showUsers()
+    {
 
         $users = User::all()->sortBy('name');
 
         return view('admin.users')->with('users', $users);
     }
-    public function newUser() 
+    public function newUser()
     {
 
         return view('admin.users-new');

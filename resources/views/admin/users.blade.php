@@ -15,7 +15,7 @@
             <i class="fas fa-table me-1"></i>
             Users - {{ $users->count() }}
 
-            <a href="{{route('users.new')}}" class="btn btn-success float-right">
+            <a href="{{ route('users.new') }}" class="btn btn-success float-right">
                 New User
             </a>
         </div>
@@ -27,21 +27,22 @@
                         <th scope="col">Email</th>
                         <th scope="col">Address / Phone</th>
                         <th scope="col" class="mx-auto">Photo</th>
-                        <th scope="col" >Role</th>
+                        <th scope="col">Role</th>
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($users as $user)
                         <tr class="text-center">
-                            <td scope="row">{{ $user->name }} <br> {{ ($user->created_at)->format('D j F - Y') }}</td>
+                            <td scope="row">{{ $user->name }} <br> {{ $user->created_at->format('D j F - Y') }}</td>
                             <td scope="row">{{ $user->email }}</td>
-                            <td scope="row">{{ $user->address }} <br> {{ $user->phone}}</td>
+                            <td scope="row">{{ $user->address }} <br> {{ $user->phone }}</td>
                             <td>
-                                <img class="user-avatar mx-auto" src="/images/users/{{ $user->photo }}" alt="{{ $user->name }}">
+                                <img class="user-avatar mx-auto" src="/images/users/{{ $user->photo }}"
+                                    alt="{{ $user->name }}">
                             </td>
                             <td>
-                                {{$user->role}}
+                                {{ $user->role }}
                             </td>
                             <td scope="row">
                                 <button class="btn btn-success btn-circle btn-md" title="Edit data user">
