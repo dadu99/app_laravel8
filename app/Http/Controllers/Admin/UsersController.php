@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\File;
 
@@ -57,8 +58,18 @@ class UsersController extends Controller
         return view('admin.users-edit')->with('user', $user);
     }
 
-    function updateUser(Request $request, $id)
+    function updateUser(UpdateUserRequest $request, $id)
     {
+
+        $this->validate(
+            $request,
+            [
+                'email' => 'unique:users,email,' . $id
+            ],
+            [
+                'email.unique' => 'Acest email este deja inregistrat in baza de date'
+            ]
+        );
 
         $user = User::findOrFail($id);
 
