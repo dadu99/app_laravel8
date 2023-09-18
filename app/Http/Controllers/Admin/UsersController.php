@@ -67,7 +67,7 @@ class UsersController extends Controller
                 'email' => 'unique:users,email,' . $id
             ],
             [
-                'email.unique' => 'Acest email este deja inregistrat in baza de date'
+                'email.unique' => 'This mail is already in data base'
             ]
         );
 
