@@ -11,7 +11,7 @@ class CreateUserRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize() 
+    public function authorize()
     {
         return true;
     }
@@ -29,11 +29,12 @@ class CreateUserRequest extends FormRequest
             'phone' => 'max:30',
             'address' => 'max:120',
             'role' => 'required',
-            'password' => 'required|min:8|confirmed'
+            'password' => 'required|min:8|confirmed',
+            'photo' => 'max:1024'
 
         ];
     }
-    public function messages() 
+    public function messages()
     {
         return [
             'name.required' => 'Name are mandatory',
@@ -46,7 +47,8 @@ class CreateUserRequest extends FormRequest
             'role.required' => 'You must assign a role to the user',
             'password.required' => 'You must enter a user password',
             'password.min' => 'The password must have at least 8 characters',
-            'password.confirmed' => 'The confirmed password is not correct!'
+            'password.confirmed' => 'The confirmed password is not correct!',
+            'photo.max' => 'Fotografia utilizatorului nu poate aveam mai mult de 1 Mb!'
         ];
     }
 }

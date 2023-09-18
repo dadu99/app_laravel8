@@ -45,9 +45,10 @@
                                 {{ $user->role }}
                             </td>
                             <td scope="row">
-                                <button class="btn btn-success btn-circle btn-md" title="Edit data user">
+                                <a href="{{ route('users.editForm', $user->id) }}"
+                                    class="btn btn-success btn-circle btn-md" title="Edit data user">
                                     <i class="fas fa-2x fa-user-edit"></i>
-                                </button>
+                                </a>
                                 <button class="btn btn-danger btn-circle btn-md" title="Delete user">
                                     <i class="fas fa-2x fa-trash-alt"></i>
                                 </button>

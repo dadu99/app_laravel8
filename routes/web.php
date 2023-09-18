@@ -24,11 +24,15 @@ Route::get('/dashboard', function () {
 
 
 // === routes for administration ===>
-Route::prefix('admin')->middleware(['admin'])->group( function() {
+Route::prefix('admin')->middleware(['admin'])->group(function () {
     Route::get('/users', [UsersController::class, 'showUsers'])->name('users');
     Route::get('/user-new', [UsersController::class, 'newUser'])->name('users.new');
     Route::post('/user-new', [UsersController::class, 'createUser'])->name('users.create');
+
+    //Edit users
+    Route::get('/user-edit/{id}', [UsersController::class, 'editForm'])->name('users.editForm');
+    Route::put('/user-edit/{id}', [UsersController::class, 'updateUser'])->name('users.update');
 });
 // <=== routes for administration ===
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
