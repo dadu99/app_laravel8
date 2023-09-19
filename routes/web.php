@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\Admin\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,5 +35,15 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
     Route::put('/user-edit/{id}', [UsersController::class, 'updateUser'])->name('users.update');
 });
 // <=== routes for administration ===
+
+
+// === routes for users ===>
+
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+    Route::get('/profile/{id}', [ProfileController::class, 'showProfile'])->name('user.profile');
+    Route::put('/profile/{id}', [ProfileController::class, 'updateProfile'])->name('update.profile');
+});
+
+// <=== routes for users ===
 
 require __DIR__ . '/auth.php';

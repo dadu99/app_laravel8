@@ -28,7 +28,7 @@ class UpdateUserRequest extends FormRequest
             'email' => 'required|email',
             'phone' => 'max:30',
             'address' => 'max:120',
-            'role' => 'required',
+            //  'role' => 'required',
             'photo' => 'max:1024'
         ];
     }
@@ -42,7 +42,7 @@ class UpdateUserRequest extends FormRequest
 
             'phone.max' => 'The phone number cannot have more than 30 characters',
             'address.max' => 'The address cannot have more than 120 characters',
-            'role.required' => 'You must assign a role to the user',
+            //    'role.required' => 'You must assign a role to the user',
 
             'photo.max' => 'The user is photo cannot be more than 1 Mb!'
         ];
