@@ -48,7 +48,6 @@
                             <div class="small">
                                 <a href="{{ route('login') }}">Already have an account? Login</a>
                             </div>
-                            <a class="small" href="password.html">Forgot Password?</a>
                         </div>
                     </div>
                 </div>
