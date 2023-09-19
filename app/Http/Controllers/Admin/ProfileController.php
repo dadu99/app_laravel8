@@ -14,53 +14,45 @@ class ProfileController extends Controller
     {
         $this->middleware('auth');
     }
-    public function showProfile($id)
+    public function showProfile()
     {
-        if (auth()->user()->id == $id) {
-            $user = User::findOrFail($id);
-            return view('admin.user-profile')->with('user', $user);
-        }
-        return back();
+        $user = User::findOrFail(auth()->user()->id);
+        return view('admin.user-profile')->with('user', $user);
     }
-    function updateProfile(UpdateUserRequest $request, $id)
+    function updateProfile(UpdateUserRequest $request)
     {
-
-        if (auth()->user()->id == $id) {
-            $this->validate(
-                $request,
-                [
-                    'email' => 'unique:users,email,' . $id
-                ],
-                [
-                    'email.unique' => 'This mail is already in data base'
-                ]
-            );
+        $this->validate(
+            $request,
+            [
+                'email' => 'unique:users,email,' . auth()->user()->id
+            ],
+            [
+                'email.unique' => 'This mail is already in data base'
+            ]
+        );
 
 
-            $user = User::findOrFail($id);
+        $user = User::findOrFail(auth()->user()->id);
 
-            if ($request->hasFile('photo')) {
+        if ($request->hasFile('photo')) {
 
-                if (!($user->photo == 'default.jpg')) {
-                    File::delete('images/users/' . $user->photo);
-                }
-
-                $extension = $request->file('photo')->getClientOriginalExtension();
-                $photoName = str_replace(' ', '', $request->name) . '_' . time() . '.' . $extension;
-
-                $request->file('photo')->move('images/users', $photoName);
-
-                $user->photo = $photoName;
+            if (!($user->photo == 'default.jpg')) {
+                File::delete('images/users/' . $user->photo);
             }
-            $user->name = $request->name;
-            $user->email = $request->email;
-            $user->phone = $request->phone;
-            $user->address = $request->address;
 
-            $user->save();
-            return redirect(route('dashboard'));
-        } else {
-            return back();
+            $extension = $request->file('photo')->getClientOriginalExtension();
+            $photoName = str_replace(' ', '', $request->name) . '_' . time() . '.' . $extension;
+
+            $request->file('photo')->move('images/users', $photoName);
+
+            $user->photo = $photoName;
         }
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+
+        $user->save();
+        return redirect(route('dashboard'));
     }
 }
