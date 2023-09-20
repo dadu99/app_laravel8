@@ -10,6 +10,11 @@
         </ol>
     </nav>
 
+    @if (Session::has('user_message'))
+        <div class="alert alert-warning">
+            {!! Session::get('user_message') !!}
+        </div>
+    @endif
     <form action="{{ route('update.profile') }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')

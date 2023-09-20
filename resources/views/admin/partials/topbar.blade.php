@@ -9,8 +9,9 @@
             <div class="input-group">
                 <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
                     aria-describedby="btnNavbarSearch" />
-                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
-                        class="fas fa-search"></i></button>
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button">
+                    <i class="fas fa-search"></i>
+                </button>
             </div>
         </form>
         <!-- Navbar-->
@@ -20,6 +21,7 @@
                     data-bs-toggle="dropdown" aria-expanded="false">
                     {{ auth()->user()->name }}
                     <i class="fas fa-user fa-fw"></i>
+
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="{{ route('user.profile') }}">Profile</a>

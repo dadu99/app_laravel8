@@ -55,7 +55,7 @@ class ProfileController extends Controller
         $user->address = $request->address;
 
         $user->save();
-        return redirect(route('dashboard'));
+        return redirect(route('dashboard'))->with('success', 'Profile was updated!');
     }
     public function resetPassword(ResetPasswordRequest $request)
     {
