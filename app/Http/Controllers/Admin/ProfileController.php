@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\File;
+use App\Http\Requests\ResetPasswordRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -54,5 +56,20 @@ class ProfileController extends Controller
 
         $user->save();
         return redirect(route('dashboard'));
+    }
+    public function resetPassword(ResetPasswordRequest $request)
+    {
+
+        if (Auth::attempt(['email' => auth()->user()->email, 'password' => $request->password])) {
+
+            //creem noua parola criptata
+            $newPassword = bcrypt($request->passwordnew);
+            $user = User::findOrFail(auth()->user()->id);
+            $user->password = $newPassword;
+
+            $user->save();
+
+            return redirect()->back()->with('user_message', 'Parola a fost modificata cu succes. Noua parola pentru acest cont este <strong>' . $request->passwordnew . '</strong>. <br> Notati aceasta parola intr-un loc sigur.');
+        }
     }
 }

@@ -42,6 +42,9 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
 Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/profile/', [ProfileController::class, 'showProfile'])->name('user.profile');
     Route::put('/profile/', [ProfileController::class, 'updateProfile'])->name('update.profile');
+
+    //password reset for each user
+    Route::put('/reset-password/', [ProfileController::class, 'resetPassword'])->name('user.reset-password');
 });
 
 // <=== routes for users ===

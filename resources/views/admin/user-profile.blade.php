@@ -10,7 +10,7 @@
         </ol>
     </nav>
 
-    <form action="{{ route('update.profile', $user->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('update.profile') }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')
         <div class="mb-3 p-4">
@@ -74,6 +74,52 @@
             <a href="{{ route('users') }}" type="submit" class="btn btn-secondary ml-2 float-left">Cancel</a>
         </div>
     </form>
+
+    <div class="col-md-10">
+        <div class="card p-4 m-5">
+            <form action="{{ route('user.reset-password') }}" method="POST" id="reset-password">
+                @csrf
+                @method('put')
+
+                <h3>Reset password:</h3>
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                        <label for="password">Old Password</label>
+                        <input name="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                            id="password" placeholder="Password">
+                        @error('password')
+                            <span class="text-danger small">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                        <label for="passwordnew">New password</label>
+                        <input name="passwordnew" type="password"
+                            class="form-control @error('password') is-invalid @enderror" id="passwordnew"
+                            placeholder="Please new password">
+                        @error('passwordnew')
+                            <span class="text-danger small">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group col-md-5">
+                        <label for="passwordnew_confirmation">Confirm new password</label>
+                        <input name="passwordnew_confirmation" type="password"
+                            class="form-control @error('passwordnew_confirmation') is-invalid @enderror"
+                            id="passwordnew_confirmation" placeholder="Confirm password">
+                        @error('passwordnew_confirmation')
+                            <span class="text-danger small">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+
+
+                <button type="submit" class="btn btn-danger float-right mb-2">Reset password</button>
+            </form>
+        </div>
+
+    </div>
 @endsection
 
 @section('customJs')

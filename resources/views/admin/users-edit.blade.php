@@ -83,28 +83,9 @@
                         <span class="text-danger small">{{ $message }}</span>
                     @enderror
                 </div>
-
-                {{-- <div class="form-group col-md-3">
-                    <label for="password">Password</label>
-                    <input name="password" type="password" class="form-control @error('password') is-invalid @enderror"
-                        id="password" placeholder="Password">
-                    @error('password')
-                        <span class="text-danger small">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <div class="form-group col-md-3">
-                    <label for="password_confirmation">Confirm password</label>
-                    <input name="password_confirmation" type="password"
-                        class="form-control @error('password_confirmation') is-invalid @enderror" id="password_confirmation"
-                        placeholder="Confirm your password">
-                    @error('password')
-                        <span class="text-danger small">{{ $message }}</span>
-                    @enderror
-                </div> --}}
             </div>
 
-            <button type="submit" class="btn btn-primary float-left ml-3 mb-5">Update user</button>
+            <button type="submit" class="btn btn-info float-left ml-3 mb-5">Update user</button>
             <a href="{{ route('users') }}" type="submit" class="btn btn-secondary ml-2 float-left">Cancel</a>
         </div>
     </form>
