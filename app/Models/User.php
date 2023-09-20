@@ -9,7 +9,9 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Contracts\Auth\CanResetPassword;         //https://laravel.com/docs/8.x/passwords#introduction
 
-class User extends Authenticatable
+
+
+class User extends Authenticatable implements MustVerifyEmail //https://laravel.com/docs/10.x/verification
 {
     use HasApiTokens, HasFactory, Notifiable;
 

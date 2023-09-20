@@ -39,7 +39,7 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
 
 // === routes for users ===>
 
-Route::prefix('admin')->middleware(['auth'])->group(function () {
+Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile/', [ProfileController::class, 'showProfile'])->name('user.profile');
     Route::put('/profile/', [ProfileController::class, 'updateProfile'])->name('update.profile');
 
