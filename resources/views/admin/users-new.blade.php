@@ -3,6 +3,7 @@
 @section('title', 'Add User')
 
 @section('content-users')
+    <h1 class="my-4">Add User</h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Control panel</a></li>
@@ -102,8 +103,17 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary float-right ml-4">Create user</button>
-            <a href="{{ route('users') }}" type="submit" class="btn btn-secondary float-right">Cancel</a>
+            <div class="form-group col-md-2">
+                <div class="form-check ml-3 mt-3 p-2 text-info">
+                    <input class="form-check-input" type="checkbox" value="1" id="defaultCheck1" name="verified">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Email verificat
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-info float-left ml-3 mb-5">Create user</button>
+            <a href="{{ route('users') }}" type="submit" class="btn btn-secondary float-left ml-2">Cancel</a>
         </div>
     </form>
 @endsection

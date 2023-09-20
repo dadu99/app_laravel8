@@ -1,8 +1,13 @@
 @extends('admin.template')
 
-@section('title', 'Edit User' . ' ' . $user->name)
+@section('title' . 'Edit user' . $user->name)
 
 @section('content-users')
+    <h1 class="my-4">
+        User edit - {{ $user->name }} - {!! $user->hasVerifiedEmail()
+            ? '<i class="fa fa-check" aria-hidden="true"></i>Email Verified'
+            : '<i class="fa fa fa-minus-circle text-danger" aria-hidden="true"></i> <span class="text-danger">Unverified email</span>' !!}
+    </h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Control Panel</a></li>
@@ -82,6 +87,18 @@
                     @error('role')
                         <span class="text-danger small">{{ $message }}</span>
                     @enderror
+                </div>
+            </div>
+            <div class="form-row p-3">
+                <div class="form-group col-md-6">
+                    <label for="verified">Verified email</label>
+                    <select name="verified" id="verified" class="custom-select">
+
+                        <option selected value="false">None</option>
+                        <option class="text-success" value="send">Send notification</option>
+                        <option class="text-info" value="valid">Valid email as verified</option>
+                        <option class="text-danger" value="invalid">Invalid</option>
+                    </select>
                 </div>
             </div>
 

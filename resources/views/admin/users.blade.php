@@ -3,6 +3,8 @@
 @section('title', 'Manage Users')
 
 @section('content-users')
+    <h1>Manage users
+    </h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Control Panel</a></li>
@@ -23,6 +25,7 @@
             <table class="table table-striped" id="datatablesSimple">
                 <thead>
                     <tr>
+                        <th scope="col"><i class="fa fa-check" aria-hidden="true"></i></th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
                         <th scope="col">Address / Phone</th>
@@ -34,6 +37,10 @@
                 <tbody>
                     @foreach ($users as $user)
                         <tr class="text-center">
+                            <td>{!! $user->hasVerifiedEmail()
+                                ? '<i class="fa fa-check" aria-hidden="true"></i>'
+                                : '<i class="fa fa-2x fa-minus-circle text-danger" aria-hidden="true"></i>' !!}
+                            </td>
                             <td scope="row">{{ $user->name }} <br> {{ $user->created_at->format('D j F - Y') }}</td>
                             <td scope="row">{{ $user->email }}</td>
                             <td scope="row">{{ $user->address }} <br> {{ $user->phone }}</td>
@@ -60,6 +67,7 @@
                 </tbody>
                 <tfoot>
                     <tr>
+                        <th scope="col"><i class="fa fa-check" aria-hidden="true"></i></th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
                         <th scope="col">Address / Phone</th>

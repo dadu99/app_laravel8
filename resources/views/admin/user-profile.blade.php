@@ -3,6 +3,9 @@
 @section('title', 'Edit Profile' . ' ' . $user->name)
 
 @section('content-users')
+    <h1>Edit profile for user
+        <span class="text-info">{{ $user->name }}</span>
+    </h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Control Panel</a></li>

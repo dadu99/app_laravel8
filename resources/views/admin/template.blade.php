@@ -8,9 +8,6 @@
             <main>
                 <div class="container-fluid px-4">
                     @include('admin.partials.messages')
-                    <h1 class="mt-4">
-                        @yield('title')
-                    </h1>
                     @yield('content-users') <!-- for user blade page-->
                     @yield('content') <!-- for control panel balde page-->
                 </div>
