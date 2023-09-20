@@ -14,4 +14,4 @@ For now, a user can only see his profile
 
 ## Other useful links:
 - https://getbootstrap.com/docs/5.3/getting-started/introduction/
-- https://mailtrap.io/)
+- https://mailtrap.io/
