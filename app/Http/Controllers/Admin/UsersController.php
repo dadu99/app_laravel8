@@ -119,4 +119,22 @@ class UsersController extends Controller
         $user->save();
         return redirect(route('users'))->with('success', $mess);
     }
+
+    function deleteUser(Request $request, $id)
+    {
+
+
+        $user = User::findOrFail($id);
+
+        if ($user->role == "admin") {
+            return redirect(route('users'));
+        }
+
+        if (!($user->photo == 'default.jpg')) {
+            File::delete('images/users/' . $user->photo);
+        }
+
+        $user->delete();
+        return redirect(route('users'))->with('success', 'User ' . $user->name . ' was deleted from database!');
+    }
 }

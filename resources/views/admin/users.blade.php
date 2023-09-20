@@ -56,7 +56,16 @@
                                     class="btn btn-success btn-circle btn-md" title="Edit data user">
                                     <i class="fas fa-2x fa-user-edit"></i>
                                 </a>
-                                <button class="btn btn-danger btn-circle btn-md" title="Delete user">
+
+                                <form id="form-delete-{{ $user->id }}" action="{{ route('users.delete', $user->id) }}"
+                                    method="POST" style="display:inline-block;">
+                                    @csrf
+                                    @method('delete')
+
+                                </form>
+
+                                <button class="btn btn-danger btn-circle btn-md" title="Delete user"
+                                    onclick="if(confirm('Confirm delete user {{ $user->name }}?')){ document.getElementById('form-delete-{{ $user->id }}').submit(); } ">
                                     <i class="fas fa-2x fa-trash-alt"></i>
                                 </button>
                             </td>

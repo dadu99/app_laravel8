@@ -33,6 +33,7 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
     //Edit users
     Route::get('/user-edit/{id}', [UsersController::class, 'editForm'])->name('users.editForm');
     Route::put('/user-edit/{id}', [UsersController::class, 'updateUser'])->name('users.update');
+    Route::delete('/user-delete/{id}', [UsersController::class, 'deleteUser'])->name('users.delete');
 });
 // <=== routes for administration ===
 
