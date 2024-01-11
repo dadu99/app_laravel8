@@ -18,7 +18,7 @@
             <i class="fas fa-table me-1"></i>
             Categories - {{ $categories->count() }}
 
-            <a href="" class="btn btn-success float-right">
+            <a href="{{ route('admin.categories.new') }}" class="btn btn-success float-right">
                 New category
             </a>
         </div>
