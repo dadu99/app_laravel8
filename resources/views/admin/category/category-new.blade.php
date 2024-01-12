@@ -73,7 +73,7 @@
             </div>
 
             <div class="form-row p-3">
-                <div class="form-group col-md-8">
+                <div class="form-group col-md-12">
                     <label for="excerpt">Excerpt</label>
                     <textarea class="form-control @error('excerpt') is-invalid @enderror" id="excerpt"
                         placeholder="Description page category"></textarea>
@@ -85,8 +85,9 @@
 
                 <div class="form-group col-md-6">
                     <label for="views">Views</label>
-                    <input name="views" type="number" class="form-control @error('views') is-invalid @enderror"
-                        id="views" placeholder="Views number" value="{{ old('views') }}">
+                    <input name="views" type="number" defaultValue="0" min="0"
+                        class="form-control @error('views') is-invalid @enderror" id="views" placeholder="Views number"
+                        value="{{ old('views') ? old('views') : 0 }}">
                     @error('views')
                         <span class="text-danger small">{{ $message }}</span>
                     @enderror

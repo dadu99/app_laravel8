@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryAddRequest;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -20,12 +22,12 @@ class CategoryController extends Controller
         return view('admin.category.category-new');
     }
 
-    public function addCategory(Request $request)
+    public function addCategory(CategoryAddRequest $request)
     {
         $category = new Category;
 
         $category->title = $request->title;
-        $category->slug = $request->slug;
+        $category->slug = Str::slug($request->slug);
         $category->subtitle = $request->subtitle;
         $category->excerpt = $request->excerpt;
         $category->views = $request->views;
