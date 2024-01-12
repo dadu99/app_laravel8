@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -36,6 +37,16 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
     Route::delete('/user-delete/{id}', [UsersController::class, 'deleteUser'])->name('users.delete');
 });
 // <=== routes for administration ===
+
+// ===> routes for categories
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+
+    //display categories
+    Route::get('categories', [CategoryController::class, 'showCategories'])->name('admin.categories');
+    Route::get('categories/new', [CategoryController::class, 'newCategory'])->name('admin.categories.new');
+    Route::post('categories/new', [CategoryController::class, 'addCategory'])->name('admin.categories.add');
+});
+
 
 
 // === routes for users ===>
