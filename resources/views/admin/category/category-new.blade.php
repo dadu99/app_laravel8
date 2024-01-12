@@ -11,7 +11,8 @@
             <li class="breadcrumb-item active">Add new category</li>
         </ol>
     </nav>
-    <form action="" method="POST" enctype="multipart/form-data">
+
+    <form action="{{ route('admin.categories.add') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3 p-4">
 
@@ -54,7 +55,7 @@
                 <div class="form-group col-md-3">
                     <label for="slug">Slug</label>
                     <input name="slug" type="text" class="form-control @error('slug') is-invalid @enderror"
-                        id="slug" placeholder="Slug category" value="{{ old('slug') }}">
+                        id="slug" placeholder="Address page type slug" value="{{ old('slug') }}">
                     @error('slug')
                         <span class="text-danger small">{{ $message }}</span>
                     @enderror
@@ -101,12 +102,12 @@
                 </div>
             </div>
 
-            <div class="form-row bh-light my-4">
+            <div class="form-row bh-light p-3">
 
                 <div class="form-group col-md-3">
                     <label for="meta_title">Meta title</label>
                     <input name="meta_title" type="text" class="form-control @error('meta_title') is-invalid @enderror"
-                        id="meta_title" placeholder="Meta title" value="{{ old('meta_title') }}">
+                        id="meta_title" placeholder="Meta title category" value="{{ old('meta_title') }}">
                     @error('meta_title')
                         <span class="text-danger small">{{ $message }}</span>
                     @enderror
@@ -116,7 +117,7 @@
                     <label for="meta_description">Meta description</label>
                     <input name="meta_description" type="text"
                         class="form-control @error('meta_description') is-invalid @enderror" id="meta_description"
-                        placeholder="Meta Description" value="{{ old('meta_description') }}">
+                        placeholder="Meta description category" value="{{ old('meta_description') }}">
                     @error('meta_description')
                         <span class="text-danger small">{{ $message }}</span>
                     @enderror
@@ -126,7 +127,7 @@
                     <label for="meta_keywords">Meta Keywords</label>
                     <input name="meta_keywords" type="text"
                         class="form-control @error('meta_keywords') is-invalid @enderror" id="meta_keywords"
-                        placeholder="Meta keywords" value="{{ old('meta_keywords') }}">
+                        placeholder="Meta keywords category" value="{{ old('meta_keywords') }}">
                     @error('meta_keywords')
                         <span class="text-danger small">{{ $message }}</span>
                     @enderror
@@ -168,5 +169,29 @@
                 });
             }
         }
+    </script>
+
+    <script type="text/javascript">
+        $('#title').on('blur', function() {
+
+            //auto generate slug func
+            var theTitle = this.value.toLowerCase().trim(),
+                slugInput = $('#slug'),
+                theSlug = theTitle.replace(/&/g, '-and-')
+                .replace(/[^a-z0-9-]+/g, '-')
+                .replace(/\-\-+/g, '-')
+                .replace(/^-+|-+$/g, '');
+
+            slugInput.val(theSlug);
+        });
+    </script>
+
+    <script src="//cdn.ckeditor.com/4.23.0-lts/standard/ckeditor.js">
+        //https://ckeditor.com/ckeditor-4/download/
+        //https://artisansweb.net/how-to-use-ckeditor-5-in-laravel/
+    </script>
+
+    <script>
+        CKEDITOR.replace('excerpt');
     </script>
 @endsection
