@@ -1,4 +1,4 @@
-# Laravel 8 and Bootstrap
+# Laravel8 app & Bootstrap
 
 ## Login Laravel Breeze
 https://laravel.com/docs/10.x/starter-kits
@@ -7,11 +7,14 @@ https://laravel.com/docs/10.x/starter-kits
 
 In the creation of this application, an authentication was used with the help of Laravel Breeze.
 
-This application has 2 main pages:
-First page is designed to manage all users as an admin. A user is of 3 types, it can be editor, author or admin.
-An admin has full roles, can create new users, edit and delete users. Also, the administrator can check the mail of a user or send him a notification to check the mail.
-For now, a user can only see his profile
-<br>Second page is designed to manage book categories and also was implemented all CRUD operations
+- This application has 2 main pages:
+  - First page is designed to manage all users as an admin. <br>
+  - A user can be editor, author or admin.
+  - An admin has full roles, can create new users, edit and delete users.
+  - Also, the administrator can check the mail of a user or send him a notification to check the mail.
+- For now, a user can only see his profile
+- Second page is designed to manage book categories and also was implemented all CRUD operations
+
 
 
 ## Other useful links:
