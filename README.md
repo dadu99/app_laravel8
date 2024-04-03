@@ -15,7 +15,11 @@ In the creation of this application, an authentication was used with the help of
 - For now, a user can only see his profile
 - Second page is designed to manage book categories and also was implemented all CRUD operations
 
-  ![app_laravel](https://github.com/dadu99/app_laravel8/assets/132062954/41939262-c56e-4e0b-b669-135342390fb1)
+## Manage Users
+ ![app_laravel](https://github.com/dadu99/app_laravel8/assets/132062954/41939262-c56e-4e0b-b669-135342390fb1)
+
+## Manage Books
+ ![app_laravel2](https://github.com/dadu99/app_laravel8/assets/132062954/96c4bb51-0e32-4dc5-9d26-cbcd63780669)
 
 
 
